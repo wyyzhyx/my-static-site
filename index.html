@@ -3,46 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的网站 - 联系我们</title>
+    <title>我的科技品牌 - 创新 · 品质 · 性价比</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="images/logo.png" alt="网站Logo" class="logo">
-            <h1>欢迎来到我的网站</h1>
-            <p>请填写以下表单与我联系</p>
-        </header>
+    <!-- 导航栏 -->
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-left">
+                <img src="images/logo.png" alt="品牌Logo" class="logo">
+                <nav>
+                    <a href="#home">首页</a>
+                    <a href="#products">产品</a>
+                    <a href="#about">关于</a>
+                    <a href="#contact">联系</a>
+                </nav>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
 
-        <main>
-            <!-- 表单部分 -->
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">姓名 *</label>
-                    <input type="text" id="name" name="name" required>
+    <!-- 轮播图 -->
+    <section class="banner" id="home">
+        <div class="banner-container" id="bannerContainer">
+            <div class="banner-slide active">
+                <img src="images/banner1.jpg" alt="新品发布">
+                <div class="banner-caption">
+                    <h2>全新旗舰，震撼登场</h2>
+                    <p>前所未有的性能体验</p>
+                    <a href="#" class="btn">立即了解</a>
                 </div>
-
-                <div class="form-group">
-                    <label for="email">邮箱 *</label>
-                    <input type="email" id="email" name="email" required>
+            </div>
+            <div class="banner-slide">
+                <img src="images/banner2.jpg" alt="热销产品">
+                <div class="banner-caption">
+                    <h2>年度爆款，限时特惠</h2>
+                    <p>错过再等一年</p>
+                    <a href="#" class="btn">马上抢购</a>
                 </div>
+            </div>
+        </div>
+        <div class="banner-dots" id="bannerDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+        </div>
+    </section>
 
-                <div class="form-group">
-                    <label for="message">留言内容 *</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+    <!-- 产品展示 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">热门产品</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/product1.jpg" alt="产品1">
+                    <h3>智能旗舰手机</h3>
+                    <p class="price">¥3999 起</p>
+                    <a href="#" class="btn">查看详情</a>
                 </div>
+                <div class="product-card">
+                    <img src="images/product2.jpg" alt="产品2">
+                    <h3>无线降噪耳机</h3>
+                    <p class="price">¥799</p>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/product1.jpg" alt="产品3">
+                    <h3>智能手表</h3>
+                    <p class="price">¥1299</p>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+                <div class="product-card">
+                    <img src="images/product2.jpg" alt="产品4">
+                    <h3>移动电源</h3>
+                    <p class="price">¥199</p>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <button type="submit">发送留言</button>
+    <!-- 关于我们 -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">关于我们</h2>
+            <div class="about-content">
+                <p>我们致力于用科技改变生活，坚持创新、品质与性价比的完美结合。</p>
+                <p>每一款产品都经过精心设计与严格测试，只为给你带来极致体验。</p>
+                <a href="#" class="btn">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们（带表单） -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <form id="contactForm" class="contact-form">
+                <input type="text" name="name" placeholder="您的姓名" required>
+                <input type="email" name="email" placeholder="您的邮箱" required>
+                <textarea name="message" placeholder="您的留言" required></textarea>
+                <button type="submit" class="btn">发送留言</button>
             </form>
-
-            <!-- 提示区域 -->
             <div id="formResult"></div>
-        </main>
+        </div>
+    </section>
 
-        <footer>
-            <p>© 2025 我的网站. 保留所有权利.</p>
-        </footer>
-    </div>
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>© 2025 我的科技品牌. 保留所有权利.</p>
+            <div class="social">
+                <a href="#"><i class="fab fa-weibo"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
