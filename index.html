@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美线云链·智汇·品质电商数字产业园</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; line-height: 1.6; }
+
+/* 导航 */
+.nav { position: fixed; top: 0; width: 100%; background: rgba(20,45,90,0.95); z-index: 100; padding: 16px 0; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+.nav-logo { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+.nav-logo span { color: #c8a050; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+.nav-links a:hover { color: #c8a050; }
+
+/* Hero */
+.hero { height: 100vh; background: linear-gradient(135deg, #142d5a 0%, #285096 100%); display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; }
+.hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #c8a050; }
+.hero-content { max-width: 900px; padding: 0 20px; }
+.hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; letter-spacing: 2px; }
+.hero .sub { font-size: 24px; color: rgba(255,255,255,0.9); margin-bottom: 30px; }
+.hero .tag { font-size: 16px; color: #c8a050; margin-bottom: 40px; }
+.hero .btn { display: inline-block; padding: 14px 40px; background: #c8a050; color: #fff; text-decoration: none; border-radius: 4px; font-size: 16px; transition: background 0.3s; }
+.hero .btn:hover { background: #b08d45; }
+
+/* 通用section */
+.section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 32px; color: #142d5a; margin-bottom: 12px; }
+.section-title .line { width: 60px; height: 3px; background: #c8a050; margin: 0 auto; }
+
+/* 公司介绍 */
+.about { background: #f8f9fb; }
+.about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.about-card { background: #fff; padding: 32px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.about-card h3 { color: #142d5a; font-size: 18px; margin-bottom: 12px; }
+.about-card p { color: #666; font-size: 14px; }
+
+/* 政府背书 */
+.gov-list { margin-top: 40px; }
+.gov-item { display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #eee; }
+.gov-item .num { width: 40px; height: 40px; background: #142d5a; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 20px; flex-shrink: 0; }
+.gov-item .info { flex: 1; }
+.gov-item .info h4 { color: #142d5a; font-size: 16px; }
+.gov-item .info p { color: #888; font-size: 13px; }
+.gov-item .time { color: #c8a050; font-weight: 600; font-size: 14px; }
+
+/* 项目概况 */
+.project-bg { background: #f8f9fb; }
+.project-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+.stat-card { background: #fff; padding: 32px; text-align: center; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.stat-card .num { font-size: 36px; color: #c8a050; font-weight: 700; margin-bottom: 8px; }
+.stat-card .label { color: #666; font-size: 14px; }
+.func-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.func-card { background: #fff; padding: 28px; border-radius: 8px; border-left: 4px solid #c8a050; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.func-card h4 { color: #142d5a; margin-bottom: 10px; font-size: 17px; }
+.func-card p { color: #666; font-size: 14px; }
+
+/* 活动日历 */
+.calendar { margin-top: 40px; }
+.cal-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.cal-table th { background: #142d5a; color: #fff; padding: 14px; text-align: left; font-size: 14px; }
+.cal-table td { padding: 12px 14px; border-bottom: 1px solid #eee; font-size: 14px; }
+.cal-table tr:hover { background: #f8f9fb; }
+
+/* 合作对象 */
+.partners { background: #f8f9fb; }
+.partner-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+.partner-card { background: #fff; padding: 24px; border-radius: 8px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.partner-card h4 { color: #142d5a; margin-bottom: 8px; font-size: 16px; }
+.partner-card p { color: #888; font-size: 13px; }
+
+/* 合作方式 */
+.coop-table { width: 100%; border-collapse: collapse; margin-top: 40px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.coop-table th { background: #142d5a; color: #fff; padding: 16px; text-align: left; font-size: 14px; }
+.coop-table td { padding: 14px 16px; border-bottom: 1px solid #eee; font-size: 14px; }
+.coop-table .level { font-weight: 700; color: #c8a050; }
+
+/* 联系我们 */
+.contact { background: linear-gradient(135deg, #142d5a 0%, #285096 100%); color: #fff; text-align: center; padding: 80px 20px; }
+.contact h2 { font-size: 32px; margin-bottom: 16px; }
+.contact .sub { color: #c8a050; font-size: 18px; margin-bottom: 40px; }
+.contact-info { max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); }
+.contact-info p { margin-bottom: 12px; font-size: 15px; }
+.contact-info .label { color: #c8a050; font-weight: 600; }
+
+/* Footer */
+.footer { background: #0d1f3d; color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 13px; }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero h1 { font-size: 32px; }
+  .hero .sub { font-size: 18px; }
+  .about-grid, .project-stats, .func-grid { grid-template-columns: 1fr; }
+  .partner-grid { grid-template-columns: repeat(2, 1fr); }
+  .cal-table { font-size: 12px; }
+  .cal-table th, .cal-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">美线<span>云链</span></div>
+    <div class="nav-links">
+      <a href="#about">关于我们</a>
+      <a href="#gov">政府背书</a>
+      <a href="#project">项目概况</a>
+      <a href="#calendar">活动日历</a>
+      <a href="#partners">合作招募</a>
+      <a href="#contact">联系我们</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>美线云链</h1>
+    <div class="sub">智汇·品质电商数字产业园</div>
+    <div class="tag">政府主导 · 企业运营 · 双向流通 · 民生枢纽</div>
+    <a href="#contact" class="btn">合作洽谈</a>
+  </div>
+</section>
+
+<!-- 公司介绍 -->
+<section class="section about" id="about">
+  <div class="section-title">
+    <h2>关于我们</h2>
+    <div class="line"></div>
+  </div>
+  <p style="text-align:center; max-width:800px; margin:0 auto; color:#666;">
+    浙江美线网络科技有限公司成立于2021年，2026年8月升级为省级注册企业。深耕舟山本地商贸流通领域，具备从供应链采购、仓储配送到线上线下运营的全链路能力。
+  </p>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>母公司</h3>
+      <p>浙江美线网络科技有限公司（省级注册）</p>
+    </div>
+    <div class="about-card">
+      <h3>全资子公司</h3>
+      <p>舟山美线供应链管理有限公司（持股95%）</p>
+    </div>
+    <div class="about-card">
+      <h3>核心能力</h3>
+      <p>供应链 · 仓储配送 · 电商运营 · 活动组织</p>
+    </div>
+  </div>
+</section>
+
+<!-- 政府背书 -->
+<section class="section" id="gov">
+  <div class="section-title">
+    <h2>政府背书</h2>
+    <div class="line"></div>
+  </div>
+  <p style="text-align:center; color:#666;">一路成长，政府一路认可</p>
+  <div class="gov-list">
+    <div class="gov-item">
+      <div class="num">1</div>
+      <div class="info">
+        <h4>千岛军嫂共富工坊</h4>
+        <p>定海区</p>
+      </div>
+      <div class="time">2022年</div>
+    </div>
+    <div class="gov-item">
+      <div class="num">2</div>
+      <div class="info">
+        <h4>舟山美线电商创业园（市级创业园）</h4>
+        <p>市人社局</p>
+      </div>
+      <div class="time">2024.8</div>
+    </div>
+    <div class="gov-item">
+      <div class="num">3</div>
+      <div class="info">
+        <h4>舟山美线众创空间（市级备案）</h4>
+        <p>市科技局</p>
+      </div>
+      <div class="time">2024.11</div>
+    </div>
+    <div class="gov-item">
+      <div class="num">4</div>
+      <div class="info">
+        <h4>全市四大电商集聚平台之一</h4>
+        <p>市政府（市商务局发布）</p>
+      </div>
+      <div class="time">2026.1</div>
+    </div>
+    <div class="gov-item">
+      <div class="num">5</div>
+      <div class="info">
+        <h4>美线（舟山）选品中心（市级电商选品中心）</h4>
+        <p>市商务局</p>
+      </div>
+      <div class="time">2026.4</div>
+    </div>
+    <div class="gov-item">
+      <div class="num">6</div>
+      <div class="info">
+        <h4>公司升级为省级注册企业</h4>
+        <p>市市场监管局定海分局</p>
+      </div>
+      <div class="time">2026.8</div>
+    </div>
+  </div>
+</section>
+
+<!-- 项目概况 -->
+<section class="section project-bg" id="project">
+  <div class="section-title">
+    <h2>项目概况</h2>
+    <div class="line"></div>
+  </div>
+  <div class="project-stats">
+    <div class="stat-card">
+      <div class="num">3万㎡</div>
+      <div class="label">一期建筑面积</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">4层</div>
+      <div class="label">室内站房 + 露天场地</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">12.10</div>
+      <div class="label">2026年12月10日开业</div>
+    </div>
+  </div>
+  <p style="text-align:center; color:#666; margin-bottom:20px;">
+    地址：舟山市定海区盐仓街道昌洲社区翁洲大道199号 原舟山市汽车客运中心（盐仓站）
+  </p>
+  <div class="func-grid">
+    <div class="func-card">
+      <h4>室内自营店（约1500㎡）</h4>
+      <p>精选爆品、直播基地、金融服务中心</p>
+    </div>
+    <div class="func-card">
+      <h4>美线集市（露天）</h4>
+      <p>生鲜直供、手艺人、农产品合作社，每周六日常态化</p>
+    </div>
+    <div class="func-card">
+      <h4>品牌活动区</h4>
+      <p>品牌展位、主题舞台、节庆活动，全年节点运营</p>
+    </div>
+  </div>
+</section>
+
+<!-- 年度活动日历 -->
+<section class="section" id="calendar">
+  <div class="section-title">
+    <h2>年度活动日历</h2>
+    <div class="line"></div>
+  </div>
+  <p style="text-align:center; color:#666; margin-bottom:30px;">12个节点活动 · 全年人气不断档</p>
+  <table class="cal-table">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>活动主题</th>
+        <th>时间</th>
+        <th>适合合作伙伴</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>备战年货节（年度旗舰）</td><td>2026.12.10—2027.2.5</td><td>金融、通讯、能源、珠宝、旅游、农产品</td></tr>
+      <tr><td>2</td><td>元宵灯谜会</td><td>2027.2.20</td><td>金融、通讯、本地农产品</td></tr>
+      <tr><td>3</td><td>开春焕新节</td><td>2027.2.27—28</td><td>汽车品牌、家装家居、通讯运营商</td></tr>
+      <tr><td>4</td><td>3·15品质消费节</td><td>2027.3.13—14</td><td>保险、银行、茶叶合作社</td></tr>
+      <tr><td>5</td><td>春游季</td><td>2027.4.3—5</td><td>旅行社、户外用品、农产品</td></tr>
+      <tr><td>6</td><td>五一汽车展</td><td>2027.5.1—3</td><td>汽车品牌、家装、家电、银行分期</td></tr>
+      <tr><td>7</td><td>端午粽子节</td><td>2027.6.5—6</td><td>食品企业、保险、通讯运营商</td></tr>
+      <tr><td>8</td><td>夏日生鲜节</td><td>2027.7.17—18</td><td>本地餐饮、啤酒品牌、农产品</td></tr>
+      <tr><td>9</td><td>七夕婚庆节</td><td>2027.8.7—8</td><td>珠宝金店、婚庆、摄影、通讯</td></tr>
+      <tr><td>10</td><td>中秋月饼节</td><td>2027.9.11—12</td><td>食品、保险、医疗机构（义诊）</td></tr>
+      <tr><td>11</td><td>国庆黄金周</td><td>2027.10.1—3</td><td>旅行社、汽车、农产品、老年服务</td></tr>
+      <tr><td>12</td><td>冬令进补节</td><td>2027.11.13—14</td><td>保健品、保暖服饰、银行年终理财</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 合作对象 -->
+<section class="section partners" id="partners">
+  <div class="section-title">
+    <h2>我们邀请谁</h2>
+    <div class="line"></div>
+  </div>
+  <p style="text-align:center; color:#666; margin-bottom:30px;">差异化互补 · 资源互换 · 共同聚人气</p>
+  <div class="partner-grid">
+    <div class="partner-card">
+      <h4>金融服务</h4>
+      <p>杭州银行（首席）、其他银行保险</p>
+    </div>
+    <div class="partner-card">
+      <h4>通讯运营商</h4>
+      <p>移动/电信/联通</p>
+    </div>
+    <div class="partner-card">
+      <h4>能源出行</h4>
+      <p>中石化/中石油、汽车品牌、驾校租车</p>
+    </div>
+    <div class="partner-card">
+      <h4>民生服务</h4>
+      <p>水电燃气、邮政快递、医院义诊</p>
+    </div>
+    <div class="partner-card">
+      <h4>生活服务</h4>
+      <p>珠宝金店、婚庆摄影、旅行社、影院</p>
+    </div>
+    <div class="partner-card">
+      <h4>优质商户</h4>
+      <p>舟山特产、手艺人、全国优品经销商</p>
+    </div>
+    <div class="partner-card">
+      <h4>B端集采客户</h4>
+      <p>机关工会、企事业单位食堂、企业年礼</p>
+    </div>
+    <div class="partner-card">
+      <h4>媒体流量平台</h4>
+      <p>抖音本地生活、官方媒体、社区团购团长</p>
+    </div>
+  </div>
+
+  <h3 style="text-align:center; margin:60px 0 20px; color:#142d5a;">合作方式</h3>
+  <table class="coop-table">
+    <thead>
+      <tr>
+        <th>合作级别</th>
+        <th>适合对象</th>
+        <th>平台赋能</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="level">年度战略合作伙伴</td>
+        <td>金融服务首席赞助商杭州银行（已锁定）；通讯、能源、出行、民生及生活服务服务首席赞助商</td>
+        <td>独家金融权益 + 室内固定服务点 + 全年活动露出 + 官方媒体宣传</td>
+      </tr>
+      <tr>
+        <td class="level">节点战略合作伙伴</td>
+        <td>大型企业、国企、头部品牌</td>
+        <td>独立拱门冠名 + 主舞台露出 + 专属展位 + 全场宣传资源</td>
+      </tr>
+      <tr>
+        <td class="level">品牌参展商</td>
+        <td>通讯、能源、生活服务类企业</td>
+        <td>标准展位 + 现场服务 + 活动宣传露出</td>
+      </tr>
+      <tr>
+        <td class="level">集市商户</td>
+        <td>农产品企业、手艺人、经销商</td>
+        <td>周末固定展位 + 线上同步销售</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="text-align:center; margin-top:24px; color:#c8a050; font-weight:600;">
+    首批签约入驻商户，享受3个月vip服务政策。具体合作方式一事一议。
+  </p>
+</section>
+
+<!-- 联系我们 -->
+<section class="contact" id="contact">
+  <h2>携手共建 · 共赢未来</h2>
+  <div class="sub">资源整合 · 人气共旺 · 服务升级 · 货通天下</div>
+  <div class="contact-info">
+    <p><span class="label">项目地址</span></p>
+    <p>舟山市定海区盐仓街道昌洲社区翁洲大道199号 原舟山市汽车客运中心（盐仓站）</p>
+    <p style="margin-top:20px;"><span class="label">合作对接</span></p>
+    <p>吴老师 微信Wuznk888 / 胡老师 电话微信13059897487</p>
+   </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  浙江美线网络科技有限公司 · 美线云链·智汇·品质电商数字产业园
+</footer>
+
+</body>
+</html>
