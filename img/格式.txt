@@ -1,0 +1,5 @@
+文件夹	文件	比例	建议像素	格式
+img/logo	logo.png	1:1 正方形	600×600	PNG/JPG
+img/kefu	damei.jpg、ermei.jpg…	 竖版2:3 JPG
+img/group	qun1.jpg～qun5.jpg	 竖版2:3 JPG
+img/activity	a.jpg b.jpg c.jpg d.jpg e.jpg	横版3:2 JPG
